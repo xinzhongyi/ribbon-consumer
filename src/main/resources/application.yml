@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ribbon-consumer
+server:
+  port: 9000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
+
+#feign 降级处理必须开启该开关
+feign:
+  hystrix:
+    enabled: true
+
+#开启请求GZIP压缩
+feign:
+  compression:
+    request:
+      enabled: true
+      mine-types: text/xml,applcation/json
+      min-request-size: 2048
